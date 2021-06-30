@@ -41,13 +41,13 @@ The session creation steps listed as so.
 1. Generate cryptographically random UID with the length of 48 for the requesting user.
 2. Create the fingerprint for the user based on his IP Address, User Agent and unique UID. Encrypted with SHA256.
 3. Set an expiry time for the token
-4. Create a success Checksum with the user's Fingerprint and expiry time, using a symmetric encryption algorithm AES (AES-128-CTR) with the defined keys.
+4. Create a success Checksum with the user's Fingerprint and expiry time, using a symmetric encryption algorithm AES (AES-128-CTR) with the defined private keys.
 5. Insert the user Checksum & UID in the cookies.
 
 The session validation steps listed as so.
 1. Check whether the Checksum or UID is empty or not set in the cookies.
 2. Create the fingerprint for the user based on his IP Address, User Agent and unique UID. Encrypted with SHA256.
-3. Decrypt the Checksum using the server's private keys and the UID.
+3. Decrypt the Checksum using the defined private keys and the UID.
 4. Validate that the Checksum has indeed been decrypted.
 5. Confirm that the Fingerprint within the Checksum matches the newly created Fingerprint.
 6. Check whether the expiry time within the Checksum hasn't passed the current time.

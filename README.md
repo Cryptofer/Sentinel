@@ -15,8 +15,6 @@ DEFINE("SENTINEL_IV", "<16 byte IV>");
 
 How you would protect a page with Sentinel.
 ```
-require_once("sentinel.class.php");
-
 $Sentinel = new Sentinel();
 
 if($Sentinel->validateSession()) {
@@ -28,8 +26,6 @@ if($Sentinel->validateSession()) {
 
 How you would create a Sentinel session so the user can access the pages.
 ```
-require_once("sentinel.class.php");
-
 $Sentinel = new Sentinel();
 
 $Sentinel->createSession();
@@ -41,7 +37,7 @@ The session creation steps listed as so.
 1. Generate cryptographically random UID with the length of 48 for the requesting user.
 2. Create the fingerprint for the user based on his IP Address, User Agent and unique UID. Encrypted with SHA256.
 3. Set an expiry time for the token
-4. Create a success Checksum with the user's Fingerprint and expiry time, using a symmetric encryption algorithm AES (AES-128-CTR) with the defined private keys.
+4. Create a success Checksum with the user's Fingerprint and expiry time, using a symmetric encryption algorithm AES (AES-128-CTR) with the defined private keys and the UID.
 5. Insert the user Checksum & UID in the cookies.
 
 The session validation steps listed as so.

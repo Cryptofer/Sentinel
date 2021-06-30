@@ -34,6 +34,10 @@ class Sentinel {
             return false;
         }
 
+        if(!constant("SENTINEL_SECRET") || !constant("SENTINEL_IV")) {
+            return false;
+        }
+
         //Get our user's fingerprint
         $Fingerprint = $this->getFingerprint($this->uidToken);
 
@@ -61,6 +65,10 @@ class Sentinel {
     }
 
     public function createSession() {
+
+        if(!constant("SENTINEL_SECRET") || !constant("SENTINEL_IV")) {
+            return false;
+        }
         
         //Generate the token sets
         $uidToken = $this->generateUID();

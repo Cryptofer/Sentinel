@@ -1,0 +1,81 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #cccccc;
+    color: #171717;
+    font-size: 16px;
+}
+
+.container {
+    padding: 10px;
+    background: #ffffff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    width: 400px;
+    margin: 0 auto;
+}
+
+.container .captcha-holder {
+    margin: 0 auto;
+}
+
+.captcha-holder {
+    position: relative;
+    max-width: 323px;
+    padding: 5px;
+    padding-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.captcha-holder .captcha-title {
+    padding: 5px;
+    text-align: center;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.captcha-holder .captcha-icons {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.captcha-holder .captcha-icons .captcha-selector {
+    position: relative;
+    flex-basis: 20%;
+    text-align: center;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.captcha-holder .captcha-icons .captcha-selector .captcha-icon {
+    margin: 0 auto;
+}
+
+.captcha-holder .captcha-icons .captcha-selector .captcha-checkbox {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+}
+
+.captcha-holder .captcha-selector .captcha-checkbox input[type=checkbox] {
+    display: none;
+}
+
+.captcha-holder .captcha-selector .captcha-checkbox .check {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    left: 0;
+    bottom: 0;
+}
+
+.captcha-holder .captcha-selector .captcha-checkbox input[type=checkbox]:checked+span {
+    background: dodgerblue;
+}
